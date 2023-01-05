@@ -21,12 +21,18 @@ repositories {
     mavenCentral()
 }
 
-javafx{
-    version='17.0.2'
-    modules=['javafx.controls']
+javafx {
+    version = '17.0.2'
+    modules = ['javafx.controls', 'javafx.fxml','javafx.media']
+//    modules=['javafx.controls','javafx.fxml','javafx.media']
 }
 
 dependencies {
+
+    implementation("com.github.almasb:fxgl:17.1") {
+        exclude group : 'org.openjfx', module : 'javafx-base'
+        exclude("group":"org.openjfx", "module":"javafx-graphics")
+    }
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
